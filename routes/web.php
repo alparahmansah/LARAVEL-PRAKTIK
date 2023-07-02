@@ -56,11 +56,15 @@ Route::prefix('toko')->group(function(){
     Route::get('/detail',
         [TokoController::class,'detail']);
 
-
-
-    Route::get('/admin',
-        [TokoController::class,'admin'])->name('produk.admin');
+    Route::group(['middleware'=>['auth']],function(){
         
+    Route::get('/admin',
+    [TokoController::class,'admin'])->name('produk.admin');
+    
+    
+
+    });
+
     Route::get('/product/create',
         [TokoController::class,'create'])->name('produk.create');
     
@@ -114,3 +118,23 @@ Route::post('/hasil', [FormController::class, 'hasil']);
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
